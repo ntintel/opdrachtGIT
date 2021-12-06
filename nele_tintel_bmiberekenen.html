@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let gewicht = prompt("Geef je gewicht in kg. Voorbeeld: 78.5");
+		if (gewicht == null) {
+    	document.write("Je hebt geannuleerd. Je BMI kan niet berekend worden.");
+		} 
+		else if (gewicht.length == 0) {
+    	document.write("Je hebt niets ingegeven. Je BMI kan niet berekend worden");
+		}
+		else{
+			let lengte = prompt("Wat is je lengte in meter? Voorbeeld: 1.78");
+			if (lengte == null) {
+    		document.write("Je hebt geannuleerd. Je BMI kan niet berekend worden.");
+			} 
+			else if (lengte.lenght == 0) {
+    		document.write("Je hebt niets ingegeven. Je BMI kan niet berekend worden");
+			}
+			else{
+				let bmi = gewicht/(lengte*lengte);
+				if (bmi <= 18.5){
+				document.write(`<p>Je BMI is ${bmi.toFixed(2)}, dus onder 18.5.</p><p>Dit betekent dat je ondergewicht hebt.</p>`);
+				}
+				else if(bmi >= 18.5 && bmi<25){
+				document.write(`<p>Je BMI is ${bmi.toFixed(2)}, dus tussen 18.5 en 25.</p><p>Dit betekent dat je een gezond gewicht hebt.</p>`);
+				}
+				else if(bmi >= 25 && bmi<30){
+				document.write(`<p>Je BMI is ${bmi.toFixed(2)}, dus tussen 25 en 30.</p><p>Dit betekent dat je overgewicht hebt.</p>`);
+				}
+				else if(bmi >=30){
+				document.write(`<p>Je BMI is ${bmi.toFixed(2)}, dus meer dan 30.</p><p>Dit betekent dat je obesitas hebt.</p>`);
+				}
+				else{
+				document.write(`<p>Er is iets misgegaan met de berekening. Misschien heb je een verkeerde waarde ingvuld. Je BMI kan niet weergegeven worden. Probeer opnieuw.</p>`);
+				}
+			}
+		}
+	
+
+	</script>
+</body>
+</html>

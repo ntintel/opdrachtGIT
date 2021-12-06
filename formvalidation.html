@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style type ="text/css">
+		.error{
+	color:red;
+}
+
+label{
+	display: inline-block;
+	text-align:right;
+	width:200px;
+}
+
+	</style>
+</head>
+<body>
+	<form id="formulier">
+<p>
+	<label for="voornaam">Voornaam:</label>
+<input type="text"  id="voornaam"/>
+	<span class="error" id="voornaam_error"></span>
+</p>
+<p>
+	<input type="button" value="Verstuur" id="knop_verstuur" onclick="verstuur()" />
+</p>
+</form>
+<script type= "text/javascript">
+	"use strict";
+
+	let voornaamTxt;
+	let allesCorrectIngevuld=true;
+
+	function controleerVoorwaardenVoornaam(){
+		if(voornaamTxt.length < 2 ){
+		document.getElementById("voornaam_error").innerHTML="Minstens 2 karakters lang!";
+		allesCorrectIngevuld = false;
+		}
+		else{
+		document.getElementById("voornaam_error").innerHTML="";
+		}
+		
+
+	function verstuur(){
+		voornaamTxt=document.getElementById("voornaam").value;	
+		allesCorrectIngevuld=true;
+
+		if(voornaamTxt.length==0){
+	
+		document.getElementById("voornaam_error").innerHTML="Vul in a.u.b.";
+		allesCorrectIngevuld = false;
+		else{
+		//aparte functie aanmaken om de voorwaarden te controleren
+		controleerVoorwaardenVoornaam()
+		}
+
+//uiteindelijk controleren of alles correct is
+//deze if blijft altijd allerlaatst in de verstuur() functie
+
+if(allesCorrectIngevuld){
+	document.write("Naam is correct ingevuld");
+}
+}//einde verstuur()
+
+
+
+
+
+</script>
+
+</body>
+</html>
